@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to my site!</title>
+    <!-- TODO: Add favicon -->  
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -20,6 +21,8 @@
 </head>
 
 <body>
+    <canvas id="background"></canvas>
+
     <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm">
         <span class="navbar-brand">Bill Mader</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -37,46 +40,46 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="jumbotron">
-            <div class="container" id="home">
-                <h1 class="display-4">
-                    Welcome
-                </h1>
-                <p class="lead">
-                    Welcome to my portfolio site! This is a place to get to know a little bit about me and see some
-                    examples of my work.
-                </p>
+    <main>   
+        <div class="container">
+            <div class="jumbotron">
+                <div class="container" id="home">
+                    <h1 class="display-4">
+                        Welcome
+                    </h1>
+                    <p class="lead">
+                        Welcome to my portfolio site! This is a place to get to know a little bit about me and see some
+                        examples of my work.
+                    </p>
+                </div>
             </div>
-            <hr>
-            <div class="container" id="about">
-                <h3>
-                    About Me
-                </h3>
-                <p class="lead">
-                    A little intro to me.
-                </p>
+            <div class="jumbotron">
+                <div class="container" id="about">
+                    <h3>
+                        About Me
+                    </h3>
+                    <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam ullam accusamus perferendis reiciendis ab sequi accusantium delectus quasi provident soluta porro, possimus officiis odit. Voluptatibus repudiandae quisquam nihil dignissimos fuga.</p>
+                </div>
             </div>
-            <hr>
-            <div class="container" id="experience">
-                <h3>
-                    Professional Experience
-                </h3>
-                <p class="lead">
-                    Examples of my work experience.
-                </p>
+            <div class="jumbotron">
+                <div class="container" id="experience">
+                    <h3>
+                        Professional Experience
+                    </h3>
+                    <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam ullam accusamus perferendis reiciendis ab sequi accusantium delectus quasi provident soluta porro, possimus officiis odit. Voluptatibus repudiandae quisquam nihil dignissimos fuga.</p>
+                </div>
             </div>
-            <hr>
-            <div class="container" id="links">
-                <h3>
-                    Links
-                </h3>
-                <p class="lead">
-                    Links to resume, LinkedIn, Github, Email, etc.
-                </p>
+            <div class="jumbotron">
+                <div class="container" id="links">
+                    <h3>
+                        Links
+                    </h3>
+                    <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam ullam accusamus perferendis reiciendis ab sequi accusantium delectus quasi provident soluta porro, possimus officiis odit. Voluptatibus repudiandae quisquam nihil dignissimos fuga.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+    <script type="module" src="/main.js"></script>
 </body>
 
 </html>
