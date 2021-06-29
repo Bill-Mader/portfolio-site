@@ -25,3 +25,11 @@ main {
   position: absolute;
   width: 100%;
 }
+
+#home,
+#about,
+#experience,
+#links {
+  padding-top: 10rem;
+  margin-top: -10rem;
+}
