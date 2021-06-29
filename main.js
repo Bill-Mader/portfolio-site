@@ -1,6 +1,31 @@
 import './style.css';
 import * as THREE from 'three';
 
+// Setup
+
+const scene = new THREE.Scene();
+
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+const renderer = new THREE.WebGLRenderer({
+    canvas: document.querySelector('#background'),
+});
+
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+camera.position.setZ(30);
+camera.position.setX(-3);
+
+renderer.render(scene, camera);
+
+// Lighting
+
+const pointLight = new THREE.PointLight(0xffffff);
+pointLight.position.set(5, 5, 5);
+
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(pointLight, ambientLight);
+
 // Stars
 
 function createStar() {
@@ -17,72 +42,43 @@ function createStar() {
     return star;
 }
 const stars = Array(200).fill().map(createStar);
+stars.forEach((star) => scene.add(star));
 
-function renderBackgroundScene() {
-    // Setup
+// Background
 
-    const scene = new THREE.Scene();
+const spaceTexture = new THREE.TextureLoader().load('assets/space.png');
+scene.background = spaceTexture;
 
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+// Scroll Animation
 
-    const renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector('#background'),
-    });
+function moveCamera() {
+    const t = document.body.getBoundingClientRect().top;
 
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.position.setZ(30);
-    camera.position.setX(-3);
+    camera.position.z = t * -0.01;
+    camera.position.x = t * -0.0002;
+    camera.rotation.y = t * -0.0002;
 
     renderer.render(scene, camera);
-
-    // Lighting
-
-    const pointLight = new THREE.PointLight(0xffffff);
-    pointLight.position.set(5, 5, 5);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff);
-    scene.add(pointLight, ambientLight);
-
-    // Add Stars
-
-    stars.forEach((star) => scene.add(star));
-
-    // Background
-
-    const spaceTexture = new THREE.TextureLoader().load('assets/space.png');
-    scene.background = spaceTexture;
-
-    // Scroll Animation
-
-    function moveCamera() {
-        const t = document.body.getBoundingClientRect().top;
-    
-        camera.position.z = t * -0.01;
-        camera.position.x = t * -0.0002;
-        camera.rotation.y = t * -0.0002;
-
-        renderer.render(scene, camera);
-    }
-
-    document.body.onscroll = moveCamera;
-    moveCamera();
-
-    function animate() {
-        requestAnimationFrame(animate);
-    
-        stars.forEach((star) => star.rotation.y += 0.005);
-
-        renderer.render(scene, camera);
-    }
-
-    animate();
 }
 
-renderBackgroundScene();
+document.body.onscroll = moveCamera;
+moveCamera();
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    stars.forEach((star) => star.rotation.y += 0.005);
+
+    renderer.render(scene, camera);
+}
+
+animate();
 
 $(window).resize(
     function() {
-        renderBackgroundScene(); // TODO: Optimize render logic for faster reactivity
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        renderer.render(scene, camera);
     }
 );
