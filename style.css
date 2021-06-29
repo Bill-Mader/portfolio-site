@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 div.jumbotron {
   margin-top: 25rem;
   margin-bottom: 25rem;

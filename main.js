@@ -30,9 +30,8 @@ scene.add(pointLight, ambientLight);
 
 function createStar() {
     const starTexture = new THREE.TextureLoader().load('assets/star.jpg');
-    const normalTexture = new THREE.TextureLoader().load('assets/normal.jpg');
     const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-    const material = new THREE.MeshStandardMaterial({ map: starTexture, normalMap: normalTexture });
+    const material = new THREE.MeshStandardMaterial({ map: starTexture });
     const star = new THREE.Mesh(geometry, material);
   
     const [x, y, z] = Array(3)
