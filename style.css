@@ -33,3 +33,7 @@ main {
   padding-top: 10rem;
   margin-top: -10rem;
 }
+
+.portfolio-image-link {
+  width: 4rem;
+}

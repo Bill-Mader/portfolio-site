@@ -13,7 +13,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
+camera.position.setZ(-30);
 camera.position.setX(-3);
 
 renderer.render(scene, camera);
@@ -54,9 +54,9 @@ scene.background = spaceTexture;
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
 
-    camera.position.z = t * -0.01;
-    camera.position.x = t * -0.0002;
-    camera.rotation.y = t * -0.0002;
+    camera.position.z = t * 0.02;
+    camera.position.x = t * 0.0004;
+    camera.rotation.y = t * 0.0004;
 
     renderer.render(scene, camera);
 }
