@@ -34,6 +34,12 @@ main {
   margin-top: -10rem;
 }
 
+.portfolio-links {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+
 .portfolio-image-link {
   width: 4rem;
 }
